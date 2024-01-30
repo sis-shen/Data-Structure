@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
-typedef int DataType; //ÕâÀï¸ÄÁ´±íµÄÊı¾İÀàĞÍ
+typedef int DataType; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 typedef struct Node
 {
@@ -14,26 +14,27 @@ typedef struct Node
 }Node;
 
 
-Node* InitNode(Node* phead);//³õÊ¼»¯
-void PushFront(Node* phead, DataType x);//Í·²å
-void PushBack(Node* phead, DataType x);//Î²²å
+Node* InitNode(Node* phead);//ï¿½ï¿½Ê¼ï¿½ï¿½
+void PushFront(Node* phead, DataType x);//Í·ï¿½ï¿½
+void PushBack(Node* phead, DataType x);//Î²ï¿½ï¿½
 void PopFront(Node* phead);//Í·É¾
 void PopBack(Node* phead);//Î²É¾
-void DestroyList(Node* phead);//É¾³ıÁ´±í
+void DestroyList(Node* phead);//É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-int FindNode(Node* phead, DataType x);//ÕÒµ½µÚÒ»¸öÖµÎªxµÄ½Úµã£¬·µ»ØÆäÏÂ±ê,¹æ¶¨ÉÚ±øÎ»Îª0£¬ÍùºóÒÀ´Î¼ÓÒ»,ËùÒÔÕÒ²»µ½¾Í·µ»Ø0
-void InsertNode(Node* phead, DataType x, int pos);//Ê¹ĞÂ²åÈëµÄ½ÚµãÏÂ±êÎª pos
-void EraseNode(Node* phead, int pos);//É¾³ıÏÂ±êÎªposµÄ½Úµã
+int FindNode(Node* phead, DataType x);//ï¿½Òµï¿½ï¿½ï¿½Ò»ï¿½ï¿½ÖµÎªxï¿½Ä½Úµã£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½,ï¿½æ¶¨ï¿½Ú±ï¿½Î»Îª0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½Ò»,ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½0
+void InsertNode(Node* phead, DataType x, int pos);//Ê¹ï¿½Â²ï¿½ï¿½ï¿½Ä½Úµï¿½ï¿½Â±ï¿½Îª pos
+void EraseNode(Node* phead, int pos);//É¾ï¿½ï¿½ï¿½Â±ï¿½Îªposï¿½Ä½Úµï¿½
 
 
 Node* InitNode(Node* phead)
 {
-	//´´½¨ÉÚ±øÎ»
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½Î»
 	Node* ret = (Node*)malloc(sizeof(Node));
-	//ret->val  //ÉÚ±øÎ»µÄÖµ²»×÷´¦Àí
+	//ret->val  //ï¿½Ú±ï¿½Î»ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	ret->next = ret;
 	ret->prev = ret;
 	ret->val = INT_MAX;
+	return ret;
 }
 
 Node* BuyNode(DataType x)
@@ -42,6 +43,7 @@ Node* BuyNode(DataType x)
 	ret->val = x;
 	ret->next = NULL;
 	ret->prev = NULL;
+	return ret;
 }
 
 void PushFront(Node* phead, DataType x)
@@ -138,7 +140,7 @@ void InsertNode(Node* phead, DataType x, int pos)
 		cur = cur->next;
 		if (cur == phead)
 		{
-			printf("²åÈëÊ§°Ü£¬Çë¼ì²é³ÌĞò\n");
+			printf("ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
 			return;
 		}
 		pos--;
@@ -161,7 +163,7 @@ void EraseNode(Node* phead, int pos)
 		cur = cur->next;
 		if (cur == phead)
 		{
-			printf("²åÈëÊ§°Ü£¬Çë¼ì²é³ÌĞò\n");
+			printf("ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
 			return;
 		}
 		pos--;
@@ -174,7 +176,7 @@ void EraseNode(Node* phead, int pos)
 	free(next);
 }
 
-void PrintList_int(Node* phead)//´òÓ¡ÕûĞÍÁ´±í
+void PrintList_int(Node* phead)//ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
 	assert(phead);
 	Node* cur = phead->next;
@@ -189,9 +191,9 @@ void PrintList_int(Node* phead)//´òÓ¡ÕûĞÍÁ´±í
 int main()
 {
 	Node* phead = NULL;
-	phead = InitNode(phead);//Ê¹ÓÃÇ°¼ÇµÃ³õÊ¼»¯
+	phead = InitNode(phead);//Ê¹ï¿½ï¿½Ç°ï¿½ÇµÃ³ï¿½Ê¼ï¿½ï¿½
 
-	//******ÒÔÏÂÎª²âÊÔ********
+	//******ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½********
 	PushFront(phead, 1);
 	PushFront(phead, 2);
 
